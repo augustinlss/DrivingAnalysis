@@ -9,12 +9,73 @@
 }
 
 .container-body{
-    display: inline-block;
+    display: block;
+}
+
+.selector{
+    display: flex;
+    font-size: 1em;
+    width: 100%;
+    justify-content: right;
+}
+
+.selector-items {
+    display: flex;
+    width: fit-content;
+    padding: 4%;
+    padding-bottom: 1%;
+}
+.selector select{
+    border: none;
+    font-size: 2em;
+    margin-left: 10px;
 }
 select{
     border: none;
-    height: auto;
-    font-size: larger;
-    padding: 1%;
-    font-weight: bold;
+}
+
+.containers-top-layer{
+    display: flex;
+    padding: 4%;
+    justify-content: space-evenly;
+}
+
+.emissions-container{
+    width: 40%;
+    text-align: left;
+    padding: 3%;
+    border: 0px solid black;
+    border-radius: 15px;
+    background-color: rgb(240, 242, 248);
+}
+
+.emissions-container select{
+    background-color: rgb(240, 242, 248);
+    font-size: 16px;
+}
+
+.budget-container{
+    display: flex;
+    width: auto;
+    text-align: left;
+    padding: 3%;
+    border: 0px solid black;
+    border-radius: 15px;
+    background-color: rgb(240, 242, 248);
+    justify-content: center;
+}
+
+.budget-bin {
+    display: flex;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+}
+
+.budget-text{
+    width: 70%;
+    text-align: center;
 }
