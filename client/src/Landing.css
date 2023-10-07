@@ -65,7 +65,7 @@ select{
     margin: 0 6% 0 0;
     border: 0px solid black;
     border-radius: 40px;
-    background-color: rgb(240, 242, 248);
+    background-color: rgb(242, 242, 247);
     transition-duration: 0.2s;
 }
 .emissions-container:hover {
@@ -76,7 +76,7 @@ select{
     font-weight: 300;
 }
 .emissions-container select{
-    background-color: rgb(240, 242, 248);
+    background-color: rgb(242, 242, 247);
     font-size: 22px;
     font-weight: 600;
 }
@@ -89,7 +89,7 @@ select{
     margin: 0 6% 0 0;
     border: 0px solid black;
     border-radius: 40px;
-    background-color: rgb(240, 242, 248);
+    background-color: rgb(242, 242, 247);
     justify-content: center;
     transition-duration: 0.2s;
 }
@@ -131,7 +131,7 @@ select{
     justify-content: right;
 }
 .driving-container {
-    background-color: rgb(240, 242, 248);
+    background-color: rgb(242, 242, 247);
     padding: 3%;
     border-radius: 26px;
     width: 26%;
@@ -149,7 +149,7 @@ select{
 }
 
 .payment-container {
-    background-color: rgb(240, 242, 248);
+    background-color: rgb(242, 242, 247);
     padding: 3.8% 3% 2.2% 3%;
     margin: 0 6% 0 0;
     border-radius: 26px;
