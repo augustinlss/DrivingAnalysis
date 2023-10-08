@@ -17,10 +17,12 @@ all {
 .nav p {
     padding: 3.3% 1.5% 0.4% 1.5%;
     margin: 0;
+    transition: 0.2s;
 }
 .nav p:hover {
     text-decoration: underline;
     cursor: pointer;
+    transform: scale(1.2);
 }
 .nav-logo {
     color: rgb(0,122,255);
@@ -186,4 +188,99 @@ select{
     color: white;
     font-weight: 600;
     cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+    .selector{
+        display: flex;
+        font-size: 1em;
+        width: 100%;
+        justify-content: right;
+    }
+    .selector-items {
+        display: flex;
+        width: fit-content;
+        padding: 5% 5% 5% 0;
+    }
+    .selector-items h1 {
+        padding: 0 5px 0 0;
+        font-size: 14px;
+    }
+    .selector select{
+        border: none;
+        font-size: 14px;
+        margin-left: 1px;
+    }
+
+    .containers-top-layer {
+        flex-direction: column;
+        padding: 0;
+        align-items: center;
+    }
+    .emissions-container{
+        margin: 0 0 5% 0;
+        padding: 3% 0 3% 0;
+        width: 90%;
+        height: 300px;
+    }
+    .emissions-chart {
+        height: 250px;
+        padding: 2%;
+    }
+    .emissions-title-span {
+        font-size: 16px;
+        font-weight: 300;
+        margin-left: 3%
+    }
+
+    .budget-container{
+        margin: 0 0 0 0;
+        padding: 3% 0 3% 0;
+        width: 90%;
+        
+    }
+    .budget-bin{
+        justify-content: left;
+        align-items: flex-start;
+    }
+    .budget-text {
+        width: 70%;
+        text-align: left;
+    }
+
+    .containers-bottom-layer{
+        flex-direction: row;
+        padding: 5% 5% 5% 5%;
+        justify-content: space-between;
+        height: 200px;
+    }
+    .driving-container {
+        background-color: rgb(242, 242, 247);
+        width: 50%;
+        border-radius: 26px;
+        text-align: center;
+        transition-duration: 0.2s;
+        font-size: 18px;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        align-items: center;
+    }
+    .driving-container p {
+        padding: 5%;
+    }
+    .payment-container {
+        background-color: rgb(242, 242, 247);
+        margin: 0;
+        padding: 0;
+        border-radius: 26px;
+        width: 45%;
+        transition-duration: 0.2s;
+        font-size: 20px;
+        height: 100%;
+        align-items: center;
+    }
+    .payment-container p {
+        padding: 5%;
+    }
 }

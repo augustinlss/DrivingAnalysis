@@ -48,7 +48,7 @@ function Landing() {
                             </select>
                         </div>
                         <div className="emissions-chart">
-                            <Bar data={data}/>
+                            <Bar data={data} options={{responsive: true, maintainAspectRatio: false,}}/>
                         </div>
                     </div>
                     <div className="budget-container">
