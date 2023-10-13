@@ -1,4 +1,4 @@
-import {haversineDistance} from '../haversine'
+const haversineDistance = require('../haversine');
 
 
 const UserData = require('../models/userData.model')
@@ -38,9 +38,14 @@ router.post(("/data"), async (req, res)=>{
     }
 });
 
-router.post(("/startSession"), (req.res) => {
+router.post(("/startSession"), (req, res) => {
   try{
-    cost
+    const _id = "65295cc65376bbb8c1d428fe"
+    const user = UserData.findOne({_id});
+    user.lastKnowLocation = req.body.location;
+    user.save().then(user => res.json(user)).catch(err => res.status(400).json("Error! " + err));
+  }catch (e) {
+    return res.json("Error: "+ e.message);
   }
 });
 
