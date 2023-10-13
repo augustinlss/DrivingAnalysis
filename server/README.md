@@ -37,7 +37,7 @@ The web-server is hosted at https://dat-driving-analysis-tool-146b65ff2bdf.herok
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `location` | `Array` | **Required**. Latitude and longitude of starting location |
+| `location` | `Array` | **Required**. Latitude and longitude of starting location (type: double)|
 
 #### Update data.
 
@@ -47,7 +47,7 @@ The web-server is hosted at https://dat-driving-analysis-tool-146b65ff2bdf.herok
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `location` | `Array` | **Required**. Latitude and longitude of starting location |
+| `location` | `Array` | **Required**. Latitude and longitude of starting location (type: double)|
 
 
 The calculations are done internally in the server.
