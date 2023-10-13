@@ -1,24 +1,41 @@
 const express = require('express');
 const app = express();
-const port = 3000; // Choose a port
-const { connectToDatabase, closeDatabase, client } = require('./db'); // Adjust the path as needed
+const cors = require('cors');
+const mongoose = require('mongoose');
 
-// Connect to the database when your server starts
-connectToDatabase();
 
-// Handle routes and other application logic here
+app.use(cors({
+  origin: ["http://localhost:3000"],
+  credentials: true,
+}));
+app.use(express.json());
+require('dotenv').config();
 
-// Close the database connection when your server shuts down
-process.on('SIGINT', async () => {
-  await closeDatabase();
-  process.exit(0);
+
+const source = process.env.ATLAS_CONNECTION;
+const PORT = process.env.PORT || 4000
+// See https://dev.to/halented/part-1-setting-up-your-backend-with-mongoose-express-mongodb-2f2p for info
+mongoose.connect(source, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
+//This is a listener that simply listens to the above connect function
+const connection = mongoose.connection
+connection.once('open', () => {
+    console.log("DB connected.");
+});
+
+const dataRoutes = require('./controllers/data.controller')
+app.use('/send', dataRoutes);
+
+app.get("/", cors(), (req, res) => {
+
 });
 
 
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
-});
+app.set('view engine', 'ejs');
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(PORT, ()=>{
+    console.log(`Successfully served on port: ${PORT}.`);
 });
