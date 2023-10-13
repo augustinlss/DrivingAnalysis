@@ -8,6 +8,60 @@ Chart.register(CategoryScale);
 
 function Landing() {
 
+    const handleClick = () => {
+        sendData();
+        async function sendData() {
+            try {
+                const json = {
+                    "name": "John",
+                    "car": "Toyota Camry",
+                    "trip": {
+                        "start_time": "2023-09-20T08:00:00",
+                        "end_time": "2023-09-20T09:30:00",
+                        "distance": 45.2, 
+                        "average_speed": 30, 
+                        "route": [
+                        {
+                            "timestamp": "2023-09-20T08:00:00",
+                            "latitude": 34.0522,
+                            "longitude": -118.2437,
+                            "speed": 0 
+                        },
+                        {
+                            "timestamp": "2023-09-20T08:15:00",
+                            "latitude": 34.0657,
+                            "longitude": -118.2361,
+                            "speed": 25 
+                        },
+                        {
+                            "timestamp": "2023-09-20T08:30:00",
+                            "latitude": 34.0762,
+                            "longitude": -118.2607,
+                            "speed": 40 
+                        },
+                        {
+                            "timestamp": "2023-09-20T09:00:00",
+                            "latitude": 34.0901,
+                            "longitude": -118.3369,
+                            "speed": 60 
+                        },
+                        {
+                            "timestamp": "2023-09-20T09:30:00",
+                            "latitude": 34.0522,
+                            "longitude": -118.2437,
+                            "speed": 0 
+                        }
+                        ]
+                    }
+                }
+    
+                const res = await axios.post("http://localhost:4000/send/data", json);
+                console.log(res.data)
+            }catch (e) {
+                console.log(e);
+            }
+        }
+    }
     const data = {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [{
@@ -48,7 +102,7 @@ function Landing() {
                             </select>
                         </div>
                         <div className="emissions-chart">
-                            <Bar data={data} options={{responsive: true, maintainAspectRatio: false,}}/>
+                            <Bar id="chart" data={data} options={{responsive: true, maintainAspectRatio: false,}}/>
                         </div>
                     </div>
                     <div className="budget-container">
@@ -68,9 +122,10 @@ function Landing() {
                     <div className="payment-container">
                         <p>Last month's emissions: <b>23,- EUR</b></p>
                         <button type="button" className="payment-button">Pay</button>
+                        <button type="button" onClick={handleClick}></button>
                     </div>
                 </div>
-            </div>    
+            </div>  
         </div>
     )
 }

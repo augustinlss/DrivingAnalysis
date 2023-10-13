@@ -190,6 +190,10 @@ select{
     cursor: pointer;
 }
 
+canvas{
+    height: 300px !important;
+}
+
 @media screen and (max-width: 1000px) {
     .selector{
         display: flex;
