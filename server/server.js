@@ -27,7 +27,7 @@ connection.once('open', () => {
 });
 
 const dataRoutes = require('./controllers/data.controller')
-app.use('/send', dataRoutes);
+app.use('/api/send', dataRoutes);
 
 app.get("/", cors(), (req, res) => {
 
