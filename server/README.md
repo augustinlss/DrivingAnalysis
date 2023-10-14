@@ -12,17 +12,20 @@ Here is the schema of the prototype:
 
 ```
 const userSchema = new Schema({
-    lastKnownLocation: Array,
+    lastKnownLocationLat: Number,
+    lastKnownLocationLong: Number
     distanceDrivenPol: Number,
     distanceDrivenNPol: Number,
     emissionsPM: Array,
 });
 ```
-lastKnownLocation: should be the last location that the gps visited. When the DAT is turned on, its current location should be set to this variable.
+lastKnownLocationLat: should be the last latitude that the gps visited. When the DAT is turned on, its current location should be set to this variable.
+
+lastKnownLocationLong: should be the last longitude that the gps visited. When the DAT is turned on, its current location should be set to this variable.
 
 distanceDrivenPol: This is the distance driven by the user in an urban area. For our prototype, this is limited to the city of Eindhoven. 
 
-distanceDrivenPol: This is the distance driven by the user in a non-urban area. For our prototype, this is limited to outside the city of Eindhoven. 
+distanceDrivenNPol: This is the distance driven by the user in a non-urban area. For our prototype, this is limited to outside the city of Eindhoven. 
 
 emissionsPM: This is an Array containing the C02 emissions of he user each month. (Fake values (that nevertheless reflect real life possibilites) were set for months january to september).
 
@@ -37,7 +40,8 @@ The web-server is hosted at https://dat-driving-analysis-tool-146b65ff2bdf.herok
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `location` | `Array` | **Required**. Latitude and longitude of starting location (type: double)|
+| `locationLAT` | `Double` | **Required**. Latitude and of starting location|
+| `locationLONG` | `Double` | **Required**. Longitude and of starting location|
 
 #### Update data.
 
@@ -47,7 +51,8 @@ The web-server is hosted at https://dat-driving-analysis-tool-146b65ff2bdf.herok
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `location` | `Array` | **Required**. Latitude and longitude of starting location (type: double)|
+| `locationLAT` | `Double` | **Required**. Latitude and of starting location|
+| `locationLONG` | `Double` | **Required**. Longitude and of starting location|
 
 
 The calculations are done internally in the server.
