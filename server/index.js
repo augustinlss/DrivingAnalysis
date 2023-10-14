@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 
 app.use(cors({
-  origin: ["http://localhost:3000"],
+  origin: ["http://localhost:3000", "https://driving-analysis.vercel.app"],
   credentials: true,
 }));
 app.use(express.json());
