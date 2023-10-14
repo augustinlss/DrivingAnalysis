@@ -30,7 +30,7 @@ distanceDrivenNPol: This is the distance driven by the user in a non-urban area.
 emissionsPM: This is an Array containing the C02 emissions of he user each month. (Fake values (that nevertheless reflect real life possibilites) were set for months january to september).
 
 ### 2. API Reference
-The web-server is hosted at https://dat-driving-analysis-tool-146b65ff2bdf.herokuapp.com/
+The web-server is hosted at https://driving-analysis-server.vercel.app
 
 #### Set new starting location
 
