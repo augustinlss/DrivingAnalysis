@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    lastKnownLocation: Array,
+    lastKnownLocationLat: Number,
+    lastKnownLocationLong: Number,
     distanceDrivenPol: Number,
     distanceDrivenNPol: Number,
     emissionsPM: Array,
