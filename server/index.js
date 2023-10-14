@@ -17,7 +17,6 @@ const PORT = process.env.PORT || 4000
 // See https://dev.to/halented/part-1-setting-up-your-backend-with-mongoose-express-mongodb-2f2p for info
 mongoose.connect(source, {
     useNewUrlParser: true,
-    methods:["POST", "GET"], 
     useUnifiedTopology: true
 });
 
