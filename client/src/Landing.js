@@ -7,15 +7,38 @@ import { CategoryScale } from "chart.js";
 Chart.register(CategoryScale);
 
 function Landing() {
-
-    const data = {
+    const [chartData, setChartData] = useState({
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [{
             label: "CO2",
-            data: [10, 30, 20, 45, 70, 20, 30, 60, 10, 3, 0, 0],
+            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             backgroundColor: "rgb(0,122,255)",
         }],
-    };
+    });
+    const [dP, setDP] = useState(0);
+    const [dNP, setNDP] = useState(0);
+    async function getChartData() {
+        const res = await axios.get("https://driving-analysis-server.vercel.app/api/send/info");
+        console.log(res.data.emissionsPM[0]);
+        setChartData({
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            datasets: [{
+                label: "CO2",
+                data: [res.data.emissionsPM[0], res.data.emissionsPM[1], res.data.emissionsPM[2], res.data.emissionsPM[3], res.data.emissionsPM[4], res.data.emissionsPM[5], res.data.emissionsPM[6], res.data.emissionsPM[7], res.data.emissionsPM[8], res.data.emissionsPM[9], res.data.emissionsPM[10], res.data.emissionsPM[11]],
+                backgroundColor: "rgb(0,122,255)",
+            }],
+        });
+        setDP(res.data.distanceDrivenPol);
+        setNDP(res.data.distanceDrivenNPol);
+
+    }
+
+    useEffect(() => {
+        getChartData();
+    }, []);
+
+
+
     return(
         <div className="Landing">
             <div className="nav">
@@ -48,7 +71,7 @@ function Landing() {
                             </select>
                         </div>
                         <div className="emissions-chart">
-                            <Bar id="chart" data={data} options={{responsive: true, maintainAspectRatio: false,}}/>
+                            <Bar id="chart" data={chartData} options={{responsive: true, maintainAspectRatio: false,}}/>
                         </div>
                     </div>
                     <div className="budget-container">
@@ -62,7 +85,8 @@ function Landing() {
                 </div>
                 <div className="containers-bottom-layer">
                     <div className="driving-container">
-                        <p>Driven in August: <b>572 km</b></p>
+                        <p>Distance driven in Urban areas: <b>{Math.round(dP)} km</b></p>
+                        <p>Distance driven in Non-Urban areas: <b>{Math.round(dNP)} km</b></p>
                         <p>Efficiency score: <b>B+</b></p>
                     </div>
                     <div className="payment-container">
