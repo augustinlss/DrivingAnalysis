@@ -30,7 +30,7 @@ const dataRoutes = require('./controllers/data.controller')
 app.use('/api/send', dataRoutes);
 
 app.get("/", cors(), (req, res) => {
-
+    res.send("hello world")
 });
 
 
