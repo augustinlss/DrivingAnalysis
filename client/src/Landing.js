@@ -10,7 +10,7 @@ function Landing() {
     const [chartData, setChartData] = useState({
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [{
-            label: "CO2",
+            label: "CO2 (in kg)",
             data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             backgroundColor: "rgb(0,122,255)",
         }],
