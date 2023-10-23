@@ -51,6 +51,7 @@ all {
     border: none;
     font-size: 2em;
     margin-left: 10px;
+    outline: none;
 }
 select{
     border: none;

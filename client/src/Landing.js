@@ -10,7 +10,7 @@ function Landing() {
     const [chartData, setChartData] = useState({
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [{
-            label: "CO2",
+            label: "CO2 (in kg)",
             data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             backgroundColor: "rgb(0,122,255)",
         }],
@@ -23,7 +23,7 @@ function Landing() {
         setChartData({
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
             datasets: [{
-                label: "CO2",
+                label: "CO2 (in kg)",
                 data: [res.data.emissionsPM[0], res.data.emissionsPM[1], res.data.emissionsPM[2], res.data.emissionsPM[3], res.data.emissionsPM[4], res.data.emissionsPM[5], res.data.emissionsPM[6], res.data.emissionsPM[7], res.data.emissionsPM[8], res.data.emissionsPM[9], res.data.emissionsPM[10], res.data.emissionsPM[11]],
                 backgroundColor: "rgb(0,122,255)",
             }],
