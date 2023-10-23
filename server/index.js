@@ -14,7 +14,7 @@ require('dotenv').config();
 
 const source = process.env.ATLAS_CONNECTION;
 const PORT = process.env.PORT || 4000
-// See https://dev.to/halented/part-1-setting-up-your-backend-with-mongoose-express-mongodb-2f2p for info
+
 mongoose.connect(source, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -36,6 +36,6 @@ app.get("/", cors(), (req, res) => {
 
 app.set('view engine', 'ejs');
 
-app.listen(PORT, ()=>{
-    res.send(`Successfully served on port: ${PORT}.`);
+app.listen(PORT, () =>{
+    console.log(`Successfully served on port: ${PORT}.`);
 });

@@ -9,7 +9,11 @@ router.route('/').get()
 
 
 
+//171 CO2e per km
 
+//CO2 Emissions (kg) = (Distance Traveled (km) 
+//x Fuel Consumption (liters/km) 
+//x Fuel Carbon Intensity (kg CO2 per liter))
 router.post(("/data"), async (req, res)=>{
     try{
       const _id = "65295cc65376bbb8c1d428fe"
@@ -30,6 +34,7 @@ router.post(("/data"), async (req, res)=>{
       }else {
           user.distanceDrivenPol = user.distanceDrivenPol + distance
       }
+      user.emissionsPM[9] = (user.distanceDrivenNPol + user.distanceDrivenPol)*0.150
       user.save().then(user => res.json(user)).catch(err => res.status(400).json("Error! " + err));
 
       console.log("Data sent")
