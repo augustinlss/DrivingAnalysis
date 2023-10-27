@@ -18,24 +18,29 @@ function Landing() {
     const [dP, setDP] = useState(0);
     const [dNP, setNDP] = useState(0);
     async function getChartData() {
-        const res = await axios.get("https://driving-analysis-server.vercel.app/api/send/info");
-        console.log(res.data.emissionsPM[0]);
-        setChartData({
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-            datasets: [{
-                label: "CO2 (in kg)",
-                data: [res.data.emissionsPM[0], res.data.emissionsPM[1], res.data.emissionsPM[2], res.data.emissionsPM[3], res.data.emissionsPM[4], res.data.emissionsPM[5], res.data.emissionsPM[6], res.data.emissionsPM[7], res.data.emissionsPM[8], res.data.emissionsPM[9], res.data.emissionsPM[10], res.data.emissionsPM[11]],
-                backgroundColor: "rgb(0,122,255)",
-            }],
-        });
-        setDP(res.data.distanceDrivenPol);
-        setNDP(res.data.distanceDrivenNPol);
+        const interval = setInterval(async () => {
+            const res = await axios.get("https://driving-analysis-server.vercel.app/api/send/info");
+            setChartData({
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                datasets: [{
+                    label: "CO2 (in kg)",
+                    data: [res.data.emissionsPM[0], res.data.emissionsPM[1], res.data.emissionsPM[2], res.data.emissionsPM[3], res.data.emissionsPM[4], res.data.emissionsPM[5], res.data.emissionsPM[6], res.data.emissionsPM[7], res.data.emissionsPM[8], res.data.emissionsPM[9], res.data.emissionsPM[10], res.data.emissionsPM[11]],
+                    backgroundColor: "rgb(0,122,255)",
+                }],
+            });
+            setDP(res.data.distanceDrivenPol);
+            setNDP(res.data.distanceDrivenNPol);
+            console.log(res.data);
+          }, 3000);
+          return () => clearInterval(interval);
+        
 
     }
 
     useEffect(() => {
         getChartData();
     }, []);
+
 
 
 
@@ -91,7 +96,7 @@ function Landing() {
                     </div>
                     <div className="payment-container">
                         <p>Last month's emissions: <b>23,- EUR</b></p>
-                        <button type="button" className="payment-button">Pay</button>
+                        <button type="button" className="payment-button">get data</button>
                     </div>
                 </div>
             </div>  
