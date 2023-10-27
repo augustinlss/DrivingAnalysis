@@ -96,7 +96,7 @@ function Landing() {
                     </div>
                     <div className="payment-container">
                         <p>Last month's emissions: <b>23,- EUR</b></p>
-                        <button type="button" className="payment-button">get data</button>
+                        <button type="button" className="payment-button">Pay</button>
                     </div>
                 </div>
             </div>  
